@@ -72,6 +72,7 @@ function productoAlCarrito(Productos){
     Productos.garantia()
     if(confirm("¿Desea agregarlo al carrito?")){
         carrito.push(Productos)
+        alert("¡Gracias por tu compra! nos estaremos comunicando en breve para gestionar el envio")
     }else{
         alert("No se agregó la zapatilla al carrito")
     }
