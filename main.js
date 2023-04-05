@@ -26,9 +26,6 @@ class Productos {
         this.talle = talle;
         this.precio = precio;
     }
-    precioMasIva(){
-        return this.precio *= 1.19;
-    }
     garantia(){
         alert("Este producto tiene 3 meses de garantia")
     }
