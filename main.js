@@ -29,6 +29,9 @@ class Productos {
     precioMasIva(){
         return this.precio *= 1.19;
     }
+    garantia(){
+        alert("Este producto tiene 3 meses de garantia")
+    }
 }
         
         const producto = [];
@@ -48,12 +51,31 @@ function buscarTalle(talleDelCliente) {
     
 }
 for(let i= 0; i < 1; i++){
+    let seguirBuscando = true;
+    while(seguirBuscando){
     let busqueda = buscarTalle(prompt("Ingresa tu numero de talle para saber con que stock contamos del 36 al 40"))
     if(busqueda != undefined){
         alert("¡FELICIDADES! tenemos stock para usted de " + busqueda.marcas + " en talle " + busqueda.talle + " a tan solo $ " + busqueda.precio)
-    } else if (busqueda == undefined){
-        alert ("En esta ocasion no tenemos stock para usted vuelva a consultar la siguiente semana, muchas gracias")
+        productoAlCarrito(busqueda)
+    } else  {
+        if(confirm ("En esta ocasion no tenemos stock para usted ¿Desea buscar otro talle?")){
+        continue; 
+        }else{
+            seguirBuscando = false; //si el usario no desea buscar mas, false para salir del bucle
+            }
+        }
     }
+    
         alert ("Muchas gracias por visitar zapatillas Keys, los esperamos pronto")
     
+}
+
+const carrito = [];
+function productoAlCarrito(Productos){
+    Productos.garantia()
+    if(confirm("¿Desea agregarlo al carrito?")){
+        carrito.push(Productos)
+    }else{
+        alert("No se agregó la zapatilla al carrito")
+    }
 }
